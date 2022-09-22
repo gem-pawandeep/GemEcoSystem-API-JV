@@ -1,6 +1,6 @@
 Feature: GemEcoSystem-APIs-JV
 
-  Scenario Outline: Sample
+  Scenario Outline: Sample-Test
     Given Set endpoint and method "<endpoint>" and "<Method>"
     Then Verify Status code <Expected_status>
     Examples:
@@ -56,12 +56,6 @@ Feature: GemEcoSystem-APIs-JV
       | endpoint | Method | Expected_status |
       | Gettoken | get    | 403             |
 
-  Scenario Outline: Health-Check
-    Given Health-Check "<FilePath>"
-    Examples:
-      | FilePath                            |
-      | src/main/resources/healthcheck.json |
-
   Scenario Outline: Login User
     Given Set endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
     Then Verify Status code <Expected_status>
@@ -70,42 +64,42 @@ Feature: GemEcoSystem-APIs-JV
       | Login    | Post   | 200             | Login_sampleJson |
 
   Scenario Outline: Login User with wrong credentials
-    Given Set endpoint and method and wrong SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Given Set credentials endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint | Method | Expected_status | SampleName        |
       | Login    | Post   | 400             | Login2_sampleJson |
 
   Scenario Outline: Login User with Empty Fields
-    Given Set endpoint and method and wrong SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Given Set credentials endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint | Method | Expected_status | SampleName        |
       | Login    | Post   | 400             | Login3_sampleJson |
 
   Scenario Outline: Login User with Empty Body
-    Given Set endpoint and method and wrong SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Given Set credentials endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint | Method | Expected_status | SampleName        |
       | Login    | Post   | 500             | Login4_sampleJson |
 
   Scenario Outline: Change Token
-    Given Change token endpoint and method "<endpoint>" and "<Method>"
+    Given Set token endpoint and method "<endpoint>" and "<Method>"
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint  | Method | Expected_status |
       | posttoken | Post   | 200             |
 
   Scenario Outline: Change Token When Header is not Given
-    Given Change token without headers endpoint and method "<endpoint>" and "<Method>"
+    Given Set Empty token endpoint and method "<endpoint>" and "<Method>"
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint  | Method | Expected_status |
       | posttoken | Post   | 403             |
 
   Scenario Outline: Change Token wih wrong Authentication
-    Given Change token with wrong Authentication endpoint and method "<endpoint>" and "<Method>"
+    Given Set Wrong token endpoint and method "<endpoint>" and "<Method>"
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint  | Method | Expected_status |
