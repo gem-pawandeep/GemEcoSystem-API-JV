@@ -2,11 +2,11 @@
   "environment": "prod",
   "projectName": "GEMECO-API-JV-BDD",
   "token": "Bearer 5a04138da05dcd31f23abe52acff8c3780445d025fad35b4f1a7c7abbdea353c",
-  "username": "raghav.suneja",
-  "gemjarUserName": "pawan_28",
+  "username": "pawan_28",
+  "gemjarUserName": "pdeep",
+  "gemjarToken": "8d012877-e1da-49aa-9b90-e2c3c03c09771664425630218",
   "gemjarSubID": "test_id",
-  "gemjarToken": "cd4d1ba1-6186-4732-8cea-ce4e63e48a3a1662446561444",
-  "glueCode": "com.qa.gemini.stepDefinition",
+  "glueCode": "com.qa.gemini.StepDefinition",
   "browserTimeout": 100,
   "prod": {
     "Post": "https://apis.gemecosystem.com/user",
@@ -25,5 +25,23 @@
     "Get": "http://ec2-3-108-218-108.ap-south-1.compute.amazonaws.com:8080/suiteexe?s_run_id=PYGEM_PROJECT_BETA_22994111-A760-47C4-9B42-91EE1D5A1A19",
     "Gettoken": "https://apis.gemecosystem.com/bridge/token",
     "posttoken": "https://apis.gemecosystem.com/bridge/token/change"
+  },
+  "beta": {
+    "Post":"https://apis-beta.gemecosystem.com/user",
+    "Gett":"https://apis-beta.gemecosystem.com/validate/username?username=user123",
+    "Login":"https://apis-beta.gemecosystem.com/login",
+    "Gett2":"https://apis-beta.gemecosystem.com/validate/username?username=user1234566",
+    "Getc":"https://apis-beta.gemecosystem.com/company",
+    "Gettt":"https://apis-beta.gemecosystem.com/suiteexe?s_run_id=GEMECOSYSTEM_APIS_BETA_B681AD35-95C6-44B7-8375-823903CB9B8A",
+    "Gettte":"https://apis-beta.gemecosystem.com/suiteexe?s_run_id=4d767509-f3b0-4fb6-a59d-85bfc384188baaa",
+    "pospo":"https://apis-beta.gemecosystem.com/suiteexe",
+    "putexe":"https://apis-beta.gemecosystem.com/testcase",
+    "pospos":"https://apis-beta.gemecosystem.com/testcase",
+    "putu":"https://apis-beta.gemecosystem.com/suiteexe",
+    "Gettest":"https://apis-beta.gemecosystem.com/testcase?tc_run_id=validate_user_exists_b681ad35-95c6-44b7-8375-823903cb9b8a",
+    "Gettest2":"https://apis-beta.gemecosystem.com/testcase?tc_run_id=dummy_test_iddd",
+    "Get":"http://ec2-3-108-218-108.ap-south-1.compute.amazonaws.com:8080/suiteexe?s_run_id=PYGEM_PROJECT_BETA_22994111-A760-47C4-9B42-91EE1D5A1A19",
+    "Gettoken":"https://apis-beta.gemecosystem.com/bridge/token",
+    "posttoken":"https://apis-beta.gemecosystem.com/bridge/token/change"
   }
 }

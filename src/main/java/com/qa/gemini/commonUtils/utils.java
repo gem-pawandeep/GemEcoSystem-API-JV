@@ -1,4 +1,4 @@
-package com.qa.gemini.commonUtils;
+package com.qa.gemini.CommonUtils;
 
 import com.gemini.generic.api.utils.*;
 import com.gemini.generic.reporting.GemTestReporter;
@@ -26,12 +26,13 @@ public class utils {
             response = ApiInvocation.handleRequest(request);
             GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Executed Successfully", STATUS.PASS);
             GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
-            if((response.getResponseBody()) != null) {
+            if ((response.getResponseBody()) != null) {
                 GemTestReporter.addTestStep("Response Body", response.getResponseBody(), STATUS.INFO);
-            }else{
+            } else {
                 GemTestReporter.addTestStep("Response Body", "No-Response", STATUS.INFO);
             }
         } catch (Exception e) {
+            e.printStackTrace();
             GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Did not Executed Successfully", STATUS.FAIL);
             GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
         }
@@ -59,9 +60,9 @@ public class utils {
             response = ApiInvocation.handleRequest(request);
             GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Executed Successfully", STATUS.PASS);
             GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
-            if((response.getResponseBody()) != null) {
+            if ((response.getResponseBody()) != null) {
                 GemTestReporter.addTestStep("Response Body", response.getResponseBody(), STATUS.INFO);
-            }else{
+            } else {
                 GemTestReporter.addTestStep("Response Body", "No-Response", STATUS.INFO);
             }
         } catch (Exception e) {
@@ -95,9 +96,9 @@ public class utils {
             response = ApiInvocation.handleRequest(request);
             GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Executed Successfully", STATUS.PASS);
             GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
-            if((response.getResponseBody()) != null) {
+            if ((response.getResponseBody()) != null) {
                 GemTestReporter.addTestStep("Response Body", response.getResponseBody(), STATUS.INFO);
-            }else{
+            } else {
                 GemTestReporter.addTestStep("Response Body", "No-Response", STATUS.INFO);
             }
         } catch (Exception e) {
@@ -137,9 +138,9 @@ public class utils {
             response = ApiInvocation.handleRequest(request);
             GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Executed Successfully", STATUS.PASS);
             GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
-            if((response.getResponseBody()) != null) {
+            if ((response.getResponseBody()) != null) {
                 GemTestReporter.addTestStep("Response Body", response.getResponseBody(), STATUS.INFO);
-            }else{
+            } else {
                 GemTestReporter.addTestStep("Response Body", "No-Response", STATUS.INFO);
             }
         } catch (Exception e) {
@@ -182,9 +183,9 @@ public class utils {
             response = ApiInvocation.handleRequest(request);
             GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Executed Successfully", STATUS.PASS);
             GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
-            if((response.getResponseBody()) != null) {
+            if ((response.getResponseBody()) != null) {
                 GemTestReporter.addTestStep("Response Body", response.getResponseBody(), STATUS.INFO);
-            }else{
+            } else {
                 GemTestReporter.addTestStep("Response Body", "No-Response", STATUS.INFO);
             }
         } catch (Exception e) {
@@ -230,9 +231,9 @@ public class utils {
             response = ApiInvocation.handleRequest(request);
             GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Executed Successfully", STATUS.PASS);
             GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
-            if((response.getResponseBody()) != null) {
+            if ((response.getResponseBody()) != null) {
                 GemTestReporter.addTestStep("Response Body", response.getResponseBody(), STATUS.INFO);
-            }else{
+            } else {
                 GemTestReporter.addTestStep("Response Body", "No-Response", STATUS.INFO);
             }
         } catch (Exception e) {
@@ -300,7 +301,7 @@ public class utils {
             JsonObject data = body.get("data").getAsJsonObject();
             too = data.get("bridgeToken").getAsString();
         }
+        GemTestReporter.addTestStep("Bridge Token",""+too,STATUS.INFO);
         return too;
     }
-
 }

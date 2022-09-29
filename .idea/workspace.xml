@@ -4,13 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5ef8c7a-f27d-4b43-978e-869506981771" name="Changes" comment="Initial commit-2 for GemEcoSystem-APIs Regression using BDD">
+    <list default="true" id="b5ef8c7a-f27d-4b43-978e-869506981771" name="Changes" comment="Final commit for GemEcoSystem-APIs Regression using BDD">
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/qa/gemini/commonUtils/utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qa/gemini/commonUtils/utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qa/gemini/stepDefinition/stepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qa/gemini/stepDefinition/stepDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/features/GemEcoSystem.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/features/GemEcoSystem.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qa/gemini/stepDefinition/stepDefinition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Login_sampleJson.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Login_sampleJson.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/gemjar-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gemjar-config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/healthcheck.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/psuite1_sampleJson.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/psuite1_sampleJson.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/psuite2_sampleJson.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/psuite2_sampleJson.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/psuite_sampleJson.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/psuite_sampleJson.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ptest1_sampleJson.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ptest1_sampleJson.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ptest2_sampleJson.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ptest2_sampleJson.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ptest3_sampleJson.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ptest3_sampleJson.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ptest_sampleJson.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ptest_sampleJson.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/put_1_sampleJson.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/put_1_sampleJson.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/put_2_sampleJson.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/put_2_sampleJson.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/puter2_sampleJson.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/puter2_sampleJson.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/puter3_sampleJson.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/puter3_sampleJson.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,24 +47,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Pawan.Deep/Downloads/TickerTapeCucumber-main/TickerTapeCucumber-main&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Pawan.Deep/Downloads/TickerTapeCucumber-main/TickerTapeCucumber-main",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
-  <component name="RunManager" selected="Cucumber Java.Feature: GemEcoSystem">
+}]]></component>
+  <component name="RunManager">
     <configuration name="Feature: GemEcoSystem" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/GemEcoSystem.feature" />
-      <option name="GLUE" value="com.gemini.generic.bdd com.gemini.generic.feature.utils com.qa.gemini.stepDefinition" />
+      <option name="GLUE" value="com.gemini.generic.bdd com.qa.gemini.StepDefinition" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="GemEcoSystem-API-JV" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <shortenClasspath name="NONE" />
       <option name="SUGGESTED_NAME" value="Feature: GemEcoSystem" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
@@ -62,104 +75,18 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Get Token With Empty Authentication" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/GemEcoSystem.feature" />
-      <option name="GLUE" value="com.gemini.generic.bdd com.gemini.generic.feature.utils com.qa.gemini.stepDefinition" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="GemEcoSystem-API-JV" />
-      <option name="NAME_FILTER" value="^Get Token With Empty Authentication$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Get Token With Empty Authentication$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Get Token With Empty Authentication" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
       </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Get data of suite s-run id not present" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/GemEcoSystem.feature" />
-      <option name="GLUE" value="com.gemini.generic.bdd com.gemini.generic.feature.utils com.qa.gemini.stepDefinition" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="GemEcoSystem-API-JV" />
-      <option name="NAME_FILTER" value="^Get data of suite s\-run id not present$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Get data of suite s\-run id not present$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Get data of suite s-run id not present" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Sample-Test" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/GemEcoSystem.feature" />
-      <option name="GLUE" value="com.gemini.generic.bdd com.gemini.generic.feature.utils com.qa.gemini.stepDefinition" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="GemEcoSystem-API-JV" />
-      <option name="NAME_FILTER" value="^Sample\-Test$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Sample\-Test$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Sample-Test" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Validate Username when username does not exists" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/GemEcoSystem.feature" />
-      <option name="GLUE" value="com.gemini.generic.bdd com.gemini.generic.feature.utils com.qa.gemini.stepDefinition" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="GemEcoSystem-API-JV" />
-      <option name="NAME_FILTER" value="^Validate Username when username does not exists$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validate Username when username does not exists$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Validate Username when username does not exists" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Cucumber Java.Scenario: Get Token With Empty Authentication" />
-      <item itemvalue="Cucumber Java.Scenario: Get data of suite s-run id not present" />
-      <item itemvalue="Cucumber Java.Scenario: Sample-Test" />
-      <item itemvalue="Cucumber Java.Scenario: Validate Username when username does not exists" />
-      <item itemvalue="Cucumber Java.Feature: GemEcoSystem" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Cucumber Java.Feature: GemEcoSystem" />
-        <item itemvalue="Cucumber Java.Scenario: Get data of suite s-run id not present" />
-        <item itemvalue="Cucumber Java.Scenario: Sample-Test" />
-        <item itemvalue="Cucumber Java.Scenario: Get Token With Empty Authentication" />
-        <item itemvalue="Cucumber Java.Scenario: Validate Username when username does not exists" />
       </list>
     </recent_temporary>
   </component>

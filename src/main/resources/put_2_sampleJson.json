@@ -8,19 +8,19 @@
 
   "status": "FAIL",
 
-  "project_name": "pygem_project",
+  "project_name": "test-project",
 
   "run_type": "ON DEMAND",
 
   "s_report_type": null,
 
-  "user": "test_user",
+  "user": "pawan_28",
 
   "env": "beta",
 
   "machine": "csgeek",
 
-  "initiated_by": "test_user",
+  "initiated_by": "pawan_28",
 
   "run_mode": "LINUX_CLI",
 
