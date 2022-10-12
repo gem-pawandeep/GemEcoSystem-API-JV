@@ -300,3 +300,336 @@ Feature: GemEcoSystem-APIs-JV
     Examples:
       | endpoint | Method | Expected_status |
       | Gettest2 | get    | 400             |
+
+######################## Bucket APIs-1 ###################################
+
+  Scenario Outline: File upload with Correct BridgeToken
+    Given Set endpoint "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload1 | 200             |
+
+  Scenario Outline: File upload with incorrect tag
+    Given Set endpoint "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload2 | 400             |
+
+  Scenario Outline: File upload with incorrect BridgeToken
+    Given Set endpoint with incorrect bridgetoken "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload1 | 403             |
+
+  Scenario Outline: File upload with Bearer token
+    Given Set endpoint without username "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload1 | 200             |
+
+  Scenario Outline: File upload with Bearer token is not present in username
+    Given Set endpoint without username in Bearer Token "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload1 | 403             |
+
+  Scenario Outline: File upload when username is not present in the DataBase
+    Given Set endpoint with username not present in db "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload1 | 403             |
+
+######################## Bucket APIs-2 ###################################
+
+  Scenario Outline: File upload by text
+    Given Set endpoint with text "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload3 | 200             |
+
+  Scenario Outline: File upload by text with incorrect tag
+    Given Set endpoint with text wrong tag "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload4 | 400             |
+
+  Scenario Outline: File upload by text with wrong bridge token
+    Given Set endpoint with text with wrong BridgeToken "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload3 | 403             |
+
+  Scenario Outline: File upload by text when Bearer token is not present in username
+    Given Set endpoint with text when BT is not present "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload3 | 403             |
+
+  Scenario Outline: File upload by text when username is not present in DB
+    Given Set endpoint with text without valid username "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload3 | 403             |
+
+  Scenario Outline: File upload by text without permission
+    Given Set endpoint with text wrong tag "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload5 | 401             |
+
+  Scenario Outline: File upload by text without write access
+    Given Set endpoint with text without write access "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload6 | 401             |
+
+######################## Bucket APIs-3 ###################################
+  ################################have to call this#######################
+  Scenario Outline:Get file back from recycle bin
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint  | Method | Expected_status | SampleName           | stepName                     |
+      | changeTag | Post   | 200             | publicTag_sampleJson | Test to change tag to public |
+  ########################################################################
+
+  Scenario Outline:Give WRITE access of the files to the users
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint | Method | Expected_status | SampleName        | stepName                          |
+      | access   | Post   | 200             | Access_sampleJson | Test to give write access to user |
+
+  Scenario Outline:Give READ access of the files to the users
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint | Method | Expected_status | SampleName        | stepName                          |
+      | access1  | Post   | 200             | Access_sampleJson | Test to give write access to user |
+
+  Scenario Outline:Remove WRITE access of the files to the users
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint | Method | Expected_status | SampleName        | stepName                          |
+      | access2  | Post   | 200             | Access_sampleJson | Test to give write access to user |
+
+  Scenario Outline:Remove READ access of the files to the users
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint | Method | Expected_status | SampleName        | stepName                          |
+      | access3  | Post   | 200             | Access_sampleJson | Test to give write access to user |
+
+  Scenario Outline:Give WRITE access of the files to the users when mode provided is incorrect
+    Given Post Suite-API endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint | Method | Expected_status | SampleName        |
+      | access4  | Post   | 400             | Access_sampleJson |
+
+  Scenario Outline:Remove READ access of the files to the users when the type provided is incorrect
+    Given Post Suite-API endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint | Method | Expected_status | SampleName        |
+      | access5  | Post   | 400             | Access_sampleJson |
+
+  Scenario Outline:Give WRITE access of the files to the users when Bridge Token is not valid
+    Given Set Post API endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint | Method | Expected_status | SampleName        |
+      | access   | Post   | 403             | Access_sampleJson |
+
+  Scenario Outline:Give WRITE access of the files to the users when username is not found in Bearer token
+    Given Set Post API without BT endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint | Method | Expected_status | SampleName        |
+      | access   | Post   | 403             | Access_sampleJson |
+
+    ######################## Bucket APIs-4 ###################################
+
+  Scenario Outline:Give access of the folder to the users
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint     | Method | Expected_status | SampleName              | stepName                           |
+      | folderAccess | Post   | 200             | folderAccess_sampleJson | Test to give folder access to user |
+
+  Scenario Outline:Remove access of the folder from the users
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint      | Method | Expected_status | SampleName              | stepName                             |
+      | folderAccess1 | Post   | 200             | folderAccess_sampleJson | Test to remove folder access to user |
+
+  Scenario Outline:Remove access of the folder from the users when type provided is incorrect
+    Given Post Suite-API endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint      | Method | Expected_status | SampleName              |
+      | folderAccess2 | Post   | 400             | folderAccess_sampleJson |
+
+  Scenario Outline:Give access of the folder to the users when Bridge Token is not valid
+    Given Set Post API endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint     | Method | Expected_status | SampleName              |
+      | folderAccess | Post   | 403             | folderAccess_sampleJson |
+
+  Scenario Outline:Give access of the folder to the users when username is not found in Bearer token
+    Given Set Post API without BT endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint     | Method | Expected_status | SampleName              |
+      | folderAccess | Post   | 403             | folderAccess_sampleJson |
+
+     ######################## Bucket APIs-5 ###################################
+
+  Scenario Outline:Change tag to public
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint  | Method | Expected_status | SampleName           | stepName                     |
+      | changeTag | Post   | 200             | publicTag_sampleJson | Test to change tag to public |
+
+  Scenario Outline:Change tag to private
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint  | Method | Expected_status | SampleName            | stepName                      |
+      | changeTag | Post   | 200             | privateTag_sampleJson | Test to change tag to private |
+
+
+  Scenario Outline:Change tag to public when Bridge Token is not valid
+    Given Set Post API endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint  | Method | Expected_status | SampleName           |
+      | changeTag | Post   | 403             | publicTag_sampleJson |
+
+  Scenario Outline:Change tag to public when username is not found in Bearer token
+    Given Set Post API without BT endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint  | Method | Expected_status | SampleName           |
+      | changeTag | Post   | 403             | publicTag_sampleJson |
+
+  Scenario Outline:Change tag to public when tag provided is incorrect
+    Given Post Suite-API endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint  | Method | Expected_status | SampleName            |
+      | changeTag | Post   | 400             | publicTag2_sampleJson |
+
+    ######################## Bucket APIs-6 ###################################
+
+  Scenario Outline:Moving the files to the recycle bin
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint  | Method | Expected_status | SampleName           | stepName                                    |
+      | deleteTag | Post   | 200             | deleteTag_sampleJson | Test to Moving the files to the recycle bin |
+
+  Scenario Outline:Moving the files to the recycle bin when Bridge Token is not valid
+    Given Set Post API endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint  | Method | Expected_status | SampleName           |
+      | deleteTag | Post   | 403             | deleteTag_sampleJson |
+
+  Scenario Outline:Moving the files to the recycle bin when username is not found in Bearer token
+    Given Set Post API without BT endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint  | Method | Expected_status | SampleName           |
+      | deleteTag | Post   | 403             | deleteTag_sampleJson |
+
+  Scenario Outline:Moving the files to the recycle bin when tag provided is incorrect
+    Given Post Suite-API endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint  | Method | Expected_status | SampleName            |
+      | deleteTag | Post   | 400             | deleteTag2_sampleJson |
+
+      ######################## Bucket APIs-7 ###################################
+  Scenario Outline: File upload before deleting
+    Given Set endpoint "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload1 | 200             |
+
+  Scenario Outline:Deleting the Files Permanently
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint        | Method | Expected_status | SampleName                 | stepName                               |
+      | permanentDelete | Post   | 200             | permanentDelete_sampleJson | Test to Deleting the Files Permanently |
+
+  Scenario Outline:Deleting the Files Permanently when Bridge Token is not valid
+    Given Set Post API endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint        | Method | Expected_status | SampleName                 |
+      | permanentDelete | Post   | 403             | permanentDelete_sampleJson |
+
+  Scenario Outline:Deleting the Files Permanently when username is not found in Bearer token
+    Given Set Post API without BT endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint        | Method | Expected_status | SampleName                 |
+      | permanentDelete | Post   | 403             | permanentDelete_sampleJson |
+
+       ######################## Bucket APIs-8 ###################################
+
+  Scenario Outline:Moving the files to the recycle bin before getting
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint  | Method | Expected_status | SampleName           | stepName                                    |
+      | deleteTag | Post   | 200             | deleteTag_sampleJson | Test to Moving the files to the recycle bin |
+
+
+  Scenario Outline:Get the Files which are in recycle bin
+    Given Set token endpoint and method "<endpoint>" and "<Method>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint      | Method | Expected_status |
+      | getrecyclebin | get    | 200             |
+
+  Scenario Outline:Get the Files which are in recycle bin when Bridge Token is not valid
+    Given Set Wrong token endpoint and method "<endpoint>" and "<Method>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint      | Method | Expected_status |
+      | getrecyclebin | get   | 403             |
+
+  Scenario Outline:Get the Files which are in recycle bin when username is not found in Bearer token
+    Given Set endpoint and method without bearer token "<endpoint>" and "<Method>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint      | Method | Expected_status |
+      | getrecyclebin | get  | 403             |
+
+    Scenario Outline:Get the Files when there is no file in recycle bin
+      Given Setting token endpoint and method "<endpoint>" and "<Method>"
+      Then Verify Status code <Expected_status>
+      Examples:
+        | endpoint      | Method | Expected_status |
+        | getrecyclebin | get    | 404             |

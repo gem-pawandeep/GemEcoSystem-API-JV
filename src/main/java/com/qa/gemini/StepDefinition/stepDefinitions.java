@@ -1,11 +1,17 @@
 package com.qa.gemini.StepDefinition;
 
+import com.gemini.generic.reporting.GemTestReporter;
+import com.gemini.generic.reporting.STATUS;
+import com.gemini.generic.utils.ProjectConfigData;
 import com.qa.gemini.CommonUtils.utils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.qa.gemini.CommonUtils.utils.Gettoken2;
+import static com.qa.gemini.CommonUtils.utils.token;
 
 public class stepDefinitions {
     int status;
@@ -28,7 +34,7 @@ public class stepDefinitions {
     @Given("^Set token endpoint and method \"(.*)\" and \"(.*)\"$")
     public void hitApiToken(String url, String method) throws Exception {
         Map<String, String> headers = new HashMap<>();
-        String j = utils.token();
+        String j = token();
         assert j != null;
         String jnew = j.replaceAll("^\"|\"$", "");
         headers.put("Authorization", "Bearer " + jnew);
@@ -38,7 +44,7 @@ public class stepDefinitions {
     @Given("^Set Wrong token endpoint and method \"(.*)\" and \"(.*)\"$")
     public void hitApiTokenWrong(String url, String method) throws Exception {
         Map<String, String> headers = new HashMap<>();
-        String j = utils.token();
+        String j = token();
         String jnew = j.replaceAll("^\"|\"$", "");
         headers.put("Authorization", "Bearer " + jnew + "pawan");
         status = utils.HitAPIWithToken(url, method, headers).getStatus();
@@ -139,4 +145,105 @@ public class stepDefinitions {
         status = utils.requestSuiteApi(url, method, SampleName).getStatus();
     }
 
+    @Given("^Set endpoint \"(.*)\"$")
+    public void fileUpload(String url) throws Exception {
+      status=  utils.FileUpload(url,"C:/Users/Pawan.Deep/Desktop/command.txt",ProjectConfigData.getProperty("username"),utils.Gettoken2());
+    }
+    @Given("^Set endpoint with incorrect bridgetoken \"(.*)\"$")
+    public void fileUpload2(String url) throws Exception {
+        status=  utils.FileUpload(url,"C:/Users/Pawan.Deep/Desktop/command.txt",ProjectConfigData.getProperty("username"),utils.Gettoken2()+"pawan");
+    }
+    @Given("^Set endpoint without username \"(.*)\"$")
+    public void fileUpload3(String url) throws Exception {
+        String j = token();
+        assert j != null;
+        String jnew = j.replaceAll("^\"|\"$", "");
+        status=  utils.FileUpload2(url,"C:/Users/Pawan.Deep/Desktop/command.txt",jnew);
+    }
+
+    @Given("^Set endpoint without username in Bearer Token \"(.*)\"$")
+    public void fileUpload5(String url) throws Exception {
+        String jnew="";
+        status=  utils.FileUpload2(url,"C:/Users/Pawan.Deep/Desktop/command.txt",jnew);
+    }
+
+    @Given("^Set endpoint with username not present in db \"(.*)\"$")
+    public void fileUpload4(String url) throws Exception {
+        status=  utils.FileUpload(url,"C:/Users/Pawan.Deep/Desktop/command.txt","",utils.Gettoken2());
+    }
+
+    @Given("^Set endpoint with text \"(.*)\"$")
+    public void fileUpload6(String url) throws Exception {
+        status=  utils.TextUpload(url,"Hello World",ProjectConfigData.getProperty("username"),utils.Gettoken2()).getStatus();
+    }
+
+    @Given("^Set endpoint with text wrong tag \"(.*)\"$")
+    public void fileUpload7(String url) throws Exception {
+        status=  utils.TextUpload2(url,"Hello World",ProjectConfigData.getProperty("username"),utils.Gettoken2()).getStatus();
+    }
+    @Given("^Set endpoint with text with wrong BridgeToken \"(.*)\"$")
+    public void fileUpload8(String url) throws Exception {
+        status=  utils.TextUpload2(url,"Hello World",ProjectConfigData.getProperty("username"),utils.Gettoken2()+"hello").getStatus();
+    }
+    @Given("^Set endpoint with text when BT is not present \"(.*)\"$")
+    public void fileUpload9(String url) throws Exception {
+        status=  utils.TextUpload3(url,"Hello World","").getStatus();
+    }
+
+    @Given("^Set endpoint with text without valid username \"(.*)\"$")
+    public void fileUploads(String url) throws Exception {
+        status=  utils.TextUpload2(url,"Hello World","abcdefghijk",utils.Gettoken2()).getStatus();
+    }
+
+    @Given("^Set endpoint with text without write access \"(.*)\"$")
+    public void fileUploads2(String url) throws Exception {
+        status=  utils.TextUpload2(url,"Hello World",ProjectConfigData.getProperty("username"),utils.Gettoken2()).getStatus();
+    }
+
+    @Given("^Post Suite-API endpoint and method and SampleName and step \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\"$")
+    public void Suite_Api1(String url, String method, String SampleName,String stepname) throws Exception {
+        Map<String, String> headers = new HashMap<>();
+        String username = ProjectConfigData.getProperty("username");
+        headers.put("username", username);
+        headers.put("bridgeToken", Gettoken2());
+        status = utils.Access(url,method,SampleName,headers,stepname).getStatus();
+    }
+    @Given("^Post Suite-API endpoint and method and SampleName \"(.*)\" and \"(.*)\" and \"(.*)\"$")
+    public void Suite_Api12(String url, String method, String SampleName) throws Exception {
+        Map<String, String> headers = new HashMap<>();
+        String username = ProjectConfigData.getProperty("username");
+        headers.put("username", username);
+        headers.put("bridgeToken", Gettoken2());
+        status = utils.Access(url,method,SampleName,headers).getStatus();
+    }
+    @Given("^Set Post API endpoint and method and SampleName \"(.*)\" and \"(.*)\" and \"(.*)\"$")
+    public void Suite_Api13(String url, String method, String SampleName) throws Exception {
+        Map<String, String> headers = new HashMap<>();
+        String username = ProjectConfigData.getProperty("username");
+        headers.put("username", username);
+        headers.put("bridgeToken", Gettoken2()+"pawan");
+        status = utils.Access(url,method,SampleName,headers).getStatus();
+    }
+    @Given("^Set Post API without BT endpoint and method and SampleName \"(.*)\" and \"(.*)\" and \"(.*)\"$")
+    public void Suite_Api14(String url, String method, String SampleName) throws Exception {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Authorization", "Bearer " + "");
+        status = utils.Access(url,method,SampleName,headers).getStatus();
+    }
+    @Given("^Set endpoint and method without bearer token \"(.*)\" and \"(.*)\"$")
+    public void Suite_Api14(String url, String method) throws Exception {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Authorization", "Bearer " + "");
+        status = utils.Access(url,method,headers).getStatus();
+    }
+
+    @Given("^Setting token endpoint and method \"(.*)\" and \"(.*)\"$")
+    public void hitApiTokenWrong1(String url, String method) throws Exception {
+        Map<String, String> headers = new HashMap<>();
+        String j = token();
+        assert j != null;
+        String jnew = j.replaceAll("^\"|\"$", "");
+        headers.put("Authorization", "Bearer " + jnew);
+        status = utils.HitAPIWithToken(url, method, headers).getStatus();
+    }
 }
