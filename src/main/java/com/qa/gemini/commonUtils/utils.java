@@ -7,6 +7,7 @@ import com.gemini.generic.utils.GemJarGlobalVar;
 import com.gemini.generic.utils.ProjectConfigData;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import io.restassured.RestAssured;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
@@ -457,14 +458,13 @@ public class utils {
 
     public static Response Access(String url, String method, String sampleName, Map<String, String> headers, String step) {
         Response response = new Response();
-
         try {
             String urlss = ProjectConfigData.getProperty(url);
             GemTestReporter.addTestStep("Request URL", urlss, STATUS.INFO);
             Request request = new Request();
             request.setURL(urlss);
             request.setMethod(method);
-            if(!headers.isEmpty()){
+            if (!headers.isEmpty()) {
                 request.setHeaderMap(headers);
             }
             if (!step.equals("")) {
@@ -475,7 +475,7 @@ public class utils {
                 request.setRequestPayload(payload);
             }
             response = ApiInvocation.handleRequest(request);
-            GemTestReporter.addTestStep("POST" + " Request Verification ", "POST" + " Request Executed Successfully", STATUS.PASS);
+            GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Executed Successfully", STATUS.PASS);
             if (step.isEmpty()) {
                 GemTestReporter.addTestStep("Message", response.getErrorMessage(), STATUS.INFO);
             }
@@ -486,8 +486,8 @@ public class utils {
                 GemTestReporter.addTestStep("Response Body", "No-Response", STATUS.INFO);
             }
         } catch (Exception e) {
-            GemTestReporter.addTestStep("POST" + " Request Verification ", "POST" + " Request Did not Executed Successfully", STATUS.FAIL);
-            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
+            GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Did not Executed Successfully", STATUS.FAIL);
+            //GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
         }
         return response;
     }
@@ -496,13 +496,8 @@ public class utils {
         return Access(url, method, sampleName, headers, "");
     }
 
-
     public static Response Access(String url, String method, Map<String, String> headers) {
         return Access(url, method, "", headers, "");
-    }
-
-    public static Response Access(String url, String method) {
-        return Access(url, method, "", null, "");
     }
 }
 

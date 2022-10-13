@@ -1,13 +1,16 @@
 package com.qa.gemini.StepDefinition;
 
-import com.gemini.generic.api.utils.Response;
 import com.gemini.generic.reporting.GemTestReporter;
 import com.gemini.generic.reporting.STATUS;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import io.restassured.RestAssured;
 import com.gemini.generic.utils.ProjectConfigData;
 import com.qa.gemini.CommonUtils.utils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.restassured.response.Response;
+import org.apache.http.util.EntityUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -268,7 +271,14 @@ public class stepDefinitions {
             parameters.put("id", "gem-np:pawan:command.txt");
             RestAssured.baseURI = ProjectConfigData.getProperty(url);
             GemTestReporter.addTestStep("Request URL", ProjectConfigData.getProperty(url), STATUS.INFO);
-            status = RestAssured.given().params(parameters).headers(headers).when().get().getStatusCode();
+          //  status = RestAssured.given().params(parameters).headers(headers).when().get().getStatusCode();
+            Response response=RestAssured.given().params(parameters).headers(headers).when().get();
+            status=response.statusCode();
+            String s=response.body().print();
+            JsonObject js = (JsonObject) JsonParser.parseString(s);
+            GemTestReporter.addTestStep("Response Body",s,STATUS.INFO);
+            GemTestReporter.addTestStep("Message",js.get("message").getAsString(),STATUS.INFO);
+            GemTestReporter.addTestStep("Operation",js.get("operation").getAsString(),STATUS.INFO);
             GemTestReporter.addTestStep("Request Verification", "Request executed successfully", STATUS.PASS);
         }catch (Exception e){
             GemTestReporter.addTestStep("Request Verification", "Request not executed", STATUS.FAIL);
@@ -279,15 +289,31 @@ public class stepDefinitions {
     public void getFile2(String url, String method) throws Exception {
         try {
             Map<String, String> headers = new HashMap<>();
-            String j = token();
-            assert j != null;
-            String jnew = j.replaceAll("^\"|\"$", "");
             headers.put("Authorization", "Bearer " + "");
             Map<String, String> parameters = new HashMap<>();
             parameters.put("id", "gem-np:pawan:command.txt");
             RestAssured.baseURI = ProjectConfigData.getProperty(url);
             GemTestReporter.addTestStep("Request URL", ProjectConfigData.getProperty(url), STATUS.INFO);
-            status = RestAssured.given().params(parameters).when().get().getStatusCode();
+            status=RestAssured.given().params(parameters).when().get().statusCode();
+            GemTestReporter.addTestStep("Request Verification", "Request executed successfully", STATUS.PASS);
+        }catch (Exception e){
+            GemTestReporter.addTestStep("Request Verification", "Request not executed", STATUS.FAIL);
+        }
+    }
+
+    @Given("^Get file by setting Authentication: endpoint and method \"(.*)\" and \"(.*)\"$")
+    public void getFile3(String url, String method) throws Exception {
+        try {
+            Map<String, String> headers = new HashMap<>();
+            String j = token();
+            assert j != null;
+            String jnew = j.replaceAll("^\"|\"$", "");
+            headers.put("Authorization", "Bearer " + jnew);
+            Map<String, String> parameters = new HashMap<>();
+            parameters.put("id", "gem-np:pawan:command.txt");
+            RestAssured.baseURI = ProjectConfigData.getProperty(url);
+            GemTestReporter.addTestStep("Request URL", ProjectConfigData.getProperty(url), STATUS.INFO);
+            status=RestAssured.given().params(parameters).headers(headers).when().get().statusCode();
             GemTestReporter.addTestStep("Request Verification", "Request executed successfully", STATUS.PASS);
         }catch (Exception e){
             GemTestReporter.addTestStep("Request Verification", "Request not executed", STATUS.FAIL);

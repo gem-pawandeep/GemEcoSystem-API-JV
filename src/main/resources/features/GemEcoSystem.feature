@@ -302,6 +302,12 @@ Feature: GemEcoSystem-APIs-JV
       | Gettest2 | get    | 400             |
 
 ######################## Bucket APIs-1 ###################################
+  Scenario Outline:Deleting the Files....
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint        | Method | Expected_status | SampleName                 | stepName                               |
+      | permanentDelete | Post   | 200             | permanentDelete_sampleJson | Test to Deleting the Files Permanently |
 
   Scenario Outline: File upload with Correct BridgeToken
     Given Set endpoint "<endpoint>"
@@ -682,7 +688,7 @@ Feature: GemEcoSystem-APIs-JV
       | changeTag | Post   | 200             | privateTag_sampleJson | Test to change tag to private |
 
    Scenario Outline:Get the Files when it is private with Authentication
-    Given Get file by setting Authentication, endpoint and method "<endpoint>" and "<Method>"
+    Given Get file by setting Authentication: endpoint and method "<endpoint>" and "<Method>"
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint | Method | Expected_status |
