@@ -324,6 +324,14 @@ Feature: GemEcoSystem-APIs-JV
       | endpoint    | Expected_status |
       | fileUpload1 | 403             |
 
+  Scenario Outline:Deleting the File.
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint        | Method | Expected_status | SampleName                 | stepName                               |
+      | permanentDelete | Post   | 200             | permanentDelete_sampleJson | Test to Deleting the Files Permanently |
+
+
   Scenario Outline: File upload with Bearer token
     Given Set endpoint without username "<endpoint>"
     Then Verify Status code <Expected_status>
@@ -568,12 +576,14 @@ Feature: GemEcoSystem-APIs-JV
       | deleteTag | Post   | 400             | deleteTag2_sampleJson |
 
       ######################## Bucket APIs-7 ###################################
-  Scenario Outline: File upload before deleting
-    Given Set endpoint "<endpoint>"
+
+  Scenario Outline:Get the file from recycle bin
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
     Then Verify Status code <Expected_status>
     Examples:
-      | endpoint    | Expected_status |
-      | fileUpload1 | 200             |
+      | endpoint  | Method | Expected_status | SampleName            | stepName                              |
+      | deleteTag | Post   | 200             | deleteTag3_sampleJson | Test to Get the file from recycle bin |
+
 
   Scenario Outline:Deleting the Files Permanently
     Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
@@ -597,6 +607,12 @@ Feature: GemEcoSystem-APIs-JV
       | permanentDelete | Post   | 403             | permanentDelete_sampleJson |
 
        ######################## Bucket APIs-8 ###################################
+  Scenario Outline: File upload before moving to recycle bin
+    Given Set endpoint "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload1 | 200             |
 
   Scenario Outline:Moving the files to the recycle bin before getting
     Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
@@ -618,18 +634,93 @@ Feature: GemEcoSystem-APIs-JV
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint      | Method | Expected_status |
-      | getrecyclebin | get   | 403             |
+      | getrecyclebin | get    | 403             |
 
   Scenario Outline:Get the Files which are in recycle bin when username is not found in Bearer token
     Given Set endpoint and method without bearer token "<endpoint>" and "<Method>"
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint      | Method | Expected_status |
-      | getrecyclebin | get  | 403             |
+      | getrecyclebin | get    | 403             |
 
-    Scenario Outline:Get the Files when there is no file in recycle bin
-      Given Setting token endpoint and method "<endpoint>" and "<Method>"
-      Then Verify Status code <Expected_status>
-      Examples:
-        | endpoint      | Method | Expected_status |
-        | getrecyclebin | get    | 404             |
+  Scenario Outline:Deleting the Files.
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint        | Method | Expected_status | SampleName                 | stepName                               |
+      | permanentDelete | Post   | 200             | permanentDelete_sampleJson | Test to Deleting the Files Permanently |
+
+
+  Scenario Outline:Get the Files when there is no file in recycle bin
+    Given Setting token endpoint and method "<endpoint>" and "<Method>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint      | Method | Expected_status |
+      | getrecyclebin | get    | 404             |
+
+       ######################## Bucket APIs-9 ###################################
+
+  Scenario Outline: File upload.
+    Given Set endpoint "<endpoint>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint    | Expected_status |
+      | fileUpload1 | 200             |
+
+  Scenario Outline:Get the Files when files are public
+    Given Get file by setting endpoint and method "<endpoint>" and "<Method>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint | Method | Expected_status |
+      | getFile  | get    | 200             |
+
+  Scenario Outline:Change tag to private before get files
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint  | Method | Expected_status | SampleName            | stepName                      |
+      | changeTag | Post   | 200             | privateTag_sampleJson | Test to change tag to private |
+
+   Scenario Outline:Get the Files when it is private with Authentication
+    Given Get file by setting Authentication, endpoint and method "<endpoint>" and "<Method>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint | Method | Expected_status |
+      | getFile  | get    | 200             |
+
+###########################################################
+
+  Scenario Outline:Get the Files when username is not found in token and file is private.
+    Given Get file by setting endpoint and method "<endpoint>" and "<Method>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint | Method | Expected_status |
+      | getFile  | get    | 403             |
+
+  Scenario Outline:Moving the files to the recycle bin before get file.
+    Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint  | Method | Expected_status | SampleName           | stepName                                    |
+      | deleteTag | Post   | 200             | deleteTag_sampleJson | Test to Moving the files to the recycle bin |
+
+  Scenario Outline:Get the Files when file is in recycle bin.
+    Given Get file by setting Authentication, endpoint and method "<endpoint>" and "<Method>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint | Method | Expected_status |
+      | getFile  | get    | 404             |
+
+  Scenario Outline:Get the Files when file not found
+    Given Get file by setting Authentication, endpoint and method "<endpoint>" and "<Method>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint | Method | Expected_status |
+      | getFile  | get    | 404             |
+
+  Scenario Outline:Get the Files when file is private and user not have permission to see it.
+    Given Get file by setting Authentication, endpoint and method "<endpoint>" and "<Method>"
+    Then Verify Status code <Expected_status>
+    Examples:
+      | endpoint | Method | Expected_status |
+      | getFile  | get    | 404             |

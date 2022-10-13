@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5ef8c7a-f27d-4b43-978e-869506981771" name="Changes" comment="Final commit for GemEcoSystem-APIs Regression for prod and beta using BDD">
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Access_sampleJson.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/deleteTag2_sampleJson.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/deleteTag_sampleJson.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/folderAccess_sampleJson.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/permanentDelete_sampleJson.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/privateTag_sampleJson.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/publicTag2_sampleJson.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/publicTag_sampleJson.json" afterDir="false" />
+    <list default="true" id="b5ef8c7a-f27d-4b43-978e-869506981771" name="Changes" comment="with bucket api automation">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/deleteTag3_sampleJson.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/qa/gemini/StepDefinition/stepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qa/gemini/StepDefinition/stepDefinitions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qa/gemini/commonUtils/utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qa/gemini/commonUtils/utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/features/GemEcoSystem.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/features/GemEcoSystem.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/gemjar-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gemjar-config.json" afterDir="false" />
     </list>
@@ -77,15 +66,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Deleting the Files Permanently" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Get the Files when files are public" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/GemEcoSystem.feature" />
       <option name="GLUE" value="com.gemini.generic.bdd com.gemini.generic.feature.utils com.qa.gemini.StepDefinition" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="GemEcoSystem-API-JV" />
-      <option name="NAME_FILTER" value="^Deleting the Files Permanently$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Deleting the Files Permanently$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Deleting the Files Permanently" />
+      <option name="NAME_FILTER" value="^Get the Files when files are public$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Get the Files when files are public$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Get the Files when files are public" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -97,15 +86,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Get the Files when there is no file in recycle bin" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Get the Files when it is private with Authentication" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/GemEcoSystem.feature" />
       <option name="GLUE" value="com.gemini.generic.bdd com.gemini.generic.feature.utils com.qa.gemini.StepDefinition" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="GemEcoSystem-API-JV" />
-      <option name="NAME_FILTER" value="^Get the Files when there is no file in recycle bin$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Get the Files when there is no file in recycle bin$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Get the Files when there is no file in recycle bin" />
+      <option name="NAME_FILTER" value="^Get the Files when it is private with Authentication$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Get the Files when it is private with Authentication$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Get the Files when it is private with Authentication" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -117,15 +106,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Get the Files which are in recycle bin when Bridge Token is not valid" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Get the Files when it is private without Authentication" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/GemEcoSystem.feature" />
       <option name="GLUE" value="com.gemini.generic.bdd com.gemini.generic.feature.utils com.qa.gemini.StepDefinition" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="GemEcoSystem-API-JV" />
-      <option name="NAME_FILTER" value="^Get the Files which are in recycle bin when Bridge Token is not valid$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Get the Files which are in recycle bin when Bridge Token is not valid$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Get the Files which are in recycle bin when Bridge Token is not valid" />
+      <option name="NAME_FILTER" value="^Get the Files when it is private without Authentication$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Get the Files when it is private without Authentication$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Get the Files when it is private without Authentication" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -137,15 +126,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Get the Files which are in recycle bin when username is not found in Bearer token" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Get the Files when username is not found in token." type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/GemEcoSystem.feature" />
       <option name="GLUE" value="com.gemini.generic.bdd com.gemini.generic.feature.utils com.qa.gemini.StepDefinition" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="GemEcoSystem-API-JV" />
-      <option name="NAME_FILTER" value="^Get the Files which are in recycle bin when username is not found in Bearer token$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Get the Files which are in recycle bin when username is not found in Bearer token$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Get the Files which are in recycle bin when username is not found in Bearer token" />
+      <option name="NAME_FILTER" value="^Get the Files when username is not found in token\.$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Get the Files when username is not found in token\.$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Get the Files when username is not found in token." />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -160,10 +149,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Cucumber Java.Feature: GemEcoSystem" />
-        <item itemvalue="Cucumber Java.Scenario: Get the Files when there is no file in recycle bin" />
-        <item itemvalue="Cucumber Java.Scenario: Deleting the Files Permanently" />
-        <item itemvalue="Cucumber Java.Scenario: Get the Files which are in recycle bin when username is not found in Bearer token" />
-        <item itemvalue="Cucumber Java.Scenario: Get the Files which are in recycle bin when Bridge Token is not valid" />
+        <item itemvalue="Cucumber Java.Scenario: Get the Files when files are public" />
+        <item itemvalue="Cucumber Java.Scenario: Get the Files when username is not found in token." />
+        <item itemvalue="Cucumber Java.Scenario: Get the Files when it is private with Authentication" />
+        <item itemvalue="Cucumber Java.Scenario: Get the Files when it is private without Authentication" />
       </list>
     </recent_temporary>
   </component>
@@ -197,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664452090332</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="with bucket api automation">
+      <created>1665579066121</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665579066121</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,6 +210,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit-2 for GemEcoSystem-APIs Regression using BDD" />
     <MESSAGE value="Final commit for GemEcoSystem-APIs Regression for prod and beta using BDD" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final commit for GemEcoSystem-APIs Regression for prod and beta using BDD" />
+    <MESSAGE value="with bucket api automation" />
+    <option name="LAST_COMMIT_MESSAGE" value="with bucket api automation" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/gemecosystem/gemjar/gemjar/1.12/gemjar-1.12.jar!/com/gemini/generic/api/utils/ApiInvocation.class</url>
+          <line>111</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

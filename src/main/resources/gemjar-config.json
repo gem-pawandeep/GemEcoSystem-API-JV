@@ -63,6 +63,7 @@
     "changeTag": "https://apis-beta.gemecosystem.com/v1/file/tag",
     "deleteTag": "https://apis-beta.gemecosystem.com/v1/file/tag",
     "permanentDelete": "https://apis-beta.gemecosystem.com/v1/file/delete",
-    "getrecyclebin": "https://apis-beta.gemecosystem.com/v1/file/recyclebin?pageNo=1"
+    "getrecyclebin": "https://apis-beta.gemecosystem.com/v1/file/recyclebin?pageNo=1",
+    "getFile": "https://apis-beta.gemecosystem.com/v1/download/file"
   }
 }
