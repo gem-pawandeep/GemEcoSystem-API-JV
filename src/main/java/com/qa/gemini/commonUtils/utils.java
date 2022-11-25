@@ -7,7 +7,6 @@ import com.gemini.generic.utils.GemJarGlobalVar;
 import com.gemini.generic.utils.ProjectConfigData;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import io.restassured.RestAssured;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
@@ -456,6 +455,7 @@ public class utils {
         return response;
     }
 
+    //with url, method, headers, payload and step.
     public static Response Access(String url, String method, String sampleName, Map<String, String> headers, String step) {
         Response response = new Response();
         try {
@@ -487,17 +487,22 @@ public class utils {
             }
         } catch (Exception e) {
             GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Did not Executed Successfully", STATUS.FAIL);
-            //GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
+            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
         }
         return response;
     }
-
+    //with url, method, headers and payload.
     public static Response Access(String url, String method, String sampleName, Map<String, String> headers) {
         return Access(url, method, sampleName, headers, "");
     }
-
+    //with url, method and headers.
     public static Response Access(String url, String method, Map<String, String> headers) {
         return Access(url, method, "", headers, "");
+    }
+
+    // with url and method.
+    public static Response Access(String url, String method) {
+        return Access(url, method, "",null, "");
     }
 }
 

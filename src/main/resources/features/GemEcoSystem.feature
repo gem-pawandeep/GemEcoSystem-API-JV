@@ -77,12 +77,12 @@ Feature: GemEcoSystem-APIs-JV
       | endpoint | Method | Expected_status | SampleName        |
       | Login    | Post   | 400             | Login3_sampleJson |
 
-  Scenario Outline: Login User with Empty Body
-    Given Set credentials endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
-    Then Verify Status code <Expected_status>
-    Examples:
-      | endpoint | Method | Expected_status | SampleName        |
-      | Login    | Post   | 500             | Login4_sampleJson |
+  #Scenario Outline: Login User with Empty Body
+  #  Given Set credentials endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+  #  Then Verify Status code <Expected_status>
+  #  Examples:
+  #    | endpoint | Method | Expected_status | SampleName        |
+  #    | Login    | Post   | 500             | Login4_sampleJson |
 
   Scenario Outline: Change Token
     Given Set token endpoint and method "<endpoint>" and "<Method>"
@@ -138,7 +138,7 @@ Feature: GemEcoSystem-APIs-JV
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint | Method | Expected_status | SampleName         |
-      | pospo    | Post   | 403             | psuite2_sampleJson |
+      | pospo    | Post   | 400             | psuite2_sampleJson |
 
   Scenario Outline: Update the suite using Put API
     Given Update Suite using endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
@@ -166,7 +166,7 @@ Feature: GemEcoSystem-APIs-JV
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint | Method | Expected_status | SampleName       |
-      | putu     | put    | 403             | put_2_sampleJson |
+      | putu     | put    | 400             | put_2_sampleJson |
 
   Scenario Outline:Create new record for Testcases
     Given Create record using endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
@@ -201,14 +201,14 @@ Feature: GemEcoSystem-APIs-JV
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint | Method | Expected_status | SampleName        |
-      | pospos   | post   | 403             | ptest3_sampleJson |
+      | pospos   | post   | 400             | ptest3_sampleJson |
 
   Scenario Outline:Create new record for Testcases when authentication not given
     Given Create record when authentication not given using endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint | Method | Expected_status | SampleName        |
-      | pospos   | post   | 403             | ptest3_sampleJson |
+      | pospos   | post   | 400             | ptest3_sampleJson |
 
   Scenario Outline: Update the suite using Put API
     Given Update Suite type2 using endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
@@ -544,12 +544,12 @@ Feature: GemEcoSystem-APIs-JV
       | endpoint  | Method | Expected_status | SampleName           |
       | changeTag | Post   | 403             | publicTag_sampleJson |
 
-  Scenario Outline:Change tag to public when tag provided is incorrect
-    Given Post Suite-API endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
-    Then Verify Status code <Expected_status>
-    Examples:
-      | endpoint  | Method | Expected_status | SampleName            |
-      | changeTag | Post   | 400             | publicTag2_sampleJson |
+ #Scenario Outline:Change tag to public when tag provided is incorrect
+ #  Given Post Suite-API endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+ #  Then Verify Status code <Expected_status>
+ #  Examples:
+ #    | endpoint  | Method | Expected_status | SampleName            |
+ #    | changeTag | Post   | 400             | publicTag2_sampleJson |
 
     ######################## Bucket APIs-6 ###################################
 
@@ -574,12 +574,12 @@ Feature: GemEcoSystem-APIs-JV
       | endpoint  | Method | Expected_status | SampleName           |
       | deleteTag | Post   | 403             | deleteTag_sampleJson |
 
-  Scenario Outline:Moving the files to the recycle bin when tag provided is incorrect
-    Given Post Suite-API endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
-    Then Verify Status code <Expected_status>
-    Examples:
-      | endpoint  | Method | Expected_status | SampleName            |
-      | deleteTag | Post   | 400             | deleteTag2_sampleJson |
+ #Scenario Outline:Moving the files to the recycle bin when tag provided is incorrect
+ #  Given Post Suite-API endpoint and method and SampleName "<endpoint>" and "<Method>" and "<SampleName>"
+ #  Then Verify Status code <Expected_status>
+ #  Examples:
+ #    | endpoint  | Method | Expected_status | SampleName            |
+ #    | deleteTag | Post   | 400             | deleteTag2_sampleJson |
 
       ######################## Bucket APIs-7 ###################################
 
@@ -673,12 +673,12 @@ Feature: GemEcoSystem-APIs-JV
       | endpoint    | Expected_status |
       | fileUpload1 | 200             |
 
-  Scenario Outline:Get the Files when files are public
-    Given Get file by setting endpoint and method "<endpoint>" and "<Method>"
-    Then Verify Status code <Expected_status>
-    Examples:
-      | endpoint | Method | Expected_status |
-      | getFile  | get    | 200             |
+# Scenario Outline:Get the Files when files are public
+#   Given Get file by setting endpoint and method "<endpoint>" and "<Method>"
+#   Then Verify Status code <Expected_status>
+#   Examples:
+#     | endpoint | Method | Expected_status |
+#     | getFile  | get    | 200             |
 
   Scenario Outline:Change tag to private before get files
     Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"

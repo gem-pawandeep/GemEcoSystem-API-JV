@@ -10,7 +10,6 @@ import com.qa.gemini.CommonUtils.utils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
-import org.apache.http.util.EntityUtils;
 
 import java.util.HashMap;
 import java.util.Map;
