@@ -10,16 +10,17 @@ Feature: GemEcoSystem-APIs-JV-BDD
     Examples:
       | endpoint | Method | Expected_status |
       | Gettt    | get    | 200             |
-      |   hello| hello       | 300     |
+      | hello    | hello  | 300             |
 
-@bye
+  @bye
   Scenario Outline:Get Company
     Given Set endpoint and method "<endpoint>" and "<Method>"
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint | Method | Expected_status |
       | Getc     | get    | 201             |
-@regression @hello
+
+  @regression @hello
   Scenario Outline: Validate UserName
     Given Set endpoint and method "<endpoint>" and "<Method>"
     Then Verify Status code <Expected_status>
