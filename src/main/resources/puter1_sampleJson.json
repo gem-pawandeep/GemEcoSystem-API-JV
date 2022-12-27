@@ -2,7 +2,8 @@
 
   "tc_run_id": "validate_user_exists_b681ad35-95c6-44b7-8375-823903cb9b8a",
 
-  "start_time": "#date-ddMMyyyyhhmmss-UTC+05:30#","end_time": "#date-ddMMyyyyhhmmss-UTC+05:30-Second-4#",
+  "start_time": "#epoch#",
+  "end_time": "#epoch#",
 
   "name": "sample_testcase2","category": "sample",
 

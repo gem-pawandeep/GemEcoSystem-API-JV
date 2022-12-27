@@ -2,7 +2,8 @@
 
   "tc_run_id": "dummy_test_ids",
 
-  "start_time": "#date-ddMMyyyyhhmmss-UTC+05:30#","end_time": "#date-ddMMyyyyhhmmss-UTC+05:30-Second-4#",
+  "start_time": "#epoch#",
+  "end_time": "#epoch#",
 
   "name": "sample_testcase2","category": "sample",
 

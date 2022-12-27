@@ -2,9 +2,9 @@
 
   "s_run_id":"GEMECOSYSTEM_APIS_BETA_B681AD35-95C6-44B7-8375-823903CB9B8A",
 
-  "s_start_time": "#date-ddMMyyyyhhmmss-UTC+05:30#",
+  "s_start_time": "#epoch#",
 
-  "s_end_time": "#date-ddMMyyyyhhmmss-UTC+05:30-Second-4#",
+  "s_end_time": "#epoch#",
 
   "status": "FAIL",
 

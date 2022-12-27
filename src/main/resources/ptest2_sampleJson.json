@@ -2,9 +2,9 @@
 
   "tc_run_id": "dummyrtrtrt",
 
-  "start_time": "#date-ddMMyyyyhhmmss-UTC+05:30#",
+  "start_time": "#epoch#",
 
-  "end_time": "#date-ddMMyyyyhhmmss-UTC+05:30-Second-4#",
+  "end_time": "#epoch#",
 
   "name": "sample_testcase2",
 

@@ -10,10 +10,20 @@
         <maven.compiler.target>18</maven.compiler.target>
     </properties>
     <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>com.gemecosystem.gemjar</groupId>-->
+<!--            <artifactId>gemjar-core</artifactId>-->
+<!--            <version>1.0.9</version>-->
+<!--        </dependency>-->
         <dependency>
+<!--            <groupId>com.gemecosystem.gemjar</groupId>-->
+<!--            <artifactId>gemjar-test</artifactId>-->
+<!--            <version>1.0.9.1</version>-->
+
+
             <groupId>com.gemecosystem.gemjar</groupId>
             <artifactId>gemjar-test</artifactId>
-            <version>1.0.8</version>
+            <version>1.0.10.1</version>
         </dependency>
     </dependencies>
 </project>

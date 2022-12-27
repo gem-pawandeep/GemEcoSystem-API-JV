@@ -1,5 +1,6 @@
 package com.qa.gemini.StepDefinition;
 
+import com.gemini.generic.reporting.GemEcoUpload;
 import com.gemini.generic.reporting.GemTestReporter;
 import com.gemini.generic.reporting.STATUS;
 import com.google.gson.JsonObject;
@@ -16,6 +17,7 @@ import java.util.Map;
 
 import static com.qa.gemini.CommonUtils.utils.*;
 
+
 public class stepDefinitions {
     int status;
 
@@ -29,9 +31,24 @@ public class stepDefinitions {
         status = utils.HitAPI(url, method).getStatus();
     }
 
+    @Given("test")
+    public void test() {
+        GemTestReporter.addTestStep("", "", STATUS.PASS);
+        GemTestReporter.addTestStep("", "", STATUS.FAIL);
+      //  GemTestReporter.addSuiteMiscData("Test123", "24");
+        GemTestReporter.addTestCaseMetaData("HEllo", "TEST@");
+        try {
+            System.out.println(2/0);
+        }catch (ArithmeticException e){
+            GemTestReporter.addReasonOfFailure("Isiliye FAIL HUA = "+ e);
+            GemTestReporter.addReasonOfFailure("doosri baar Isiliye FAIL HUA  = "+ e);
+        }
+
+    }
     @Then("Verify Status code {int}")
     public void check_status_code(int Expected) {
         utils.VerifyStatusCode(Expected, status);
+        GemTestReporter.addTestStep("check","check",STATUS.PASS);
     }
 
     @Given("^Set token endpoint and method \"(.*)\" and \"(.*)\"$")
@@ -66,6 +83,7 @@ public class stepDefinitions {
     @Given("^Set credentials endpoint and method and SampleName \"(.*)\" and \"(.*)\" and \"(.*)\"$")
     public void Loginwrong(String url, String method, String SampleName) throws Exception {
         status = utils.LoginUser(url, method, SampleName).getStatus();
+
     }
 
     @Given("^Set Suite-API endpoint and method and SampleName \"(.*)\" and \"(.*)\" and \"(.*)\"$")

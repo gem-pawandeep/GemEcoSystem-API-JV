@@ -1,19 +1,23 @@
-Feature: GemEcoSystem-APIs-JV
+Feature: GemEcoSystem-APIs-JV-BDD
 
-  Scenario Outline: Sample-Test
+  @Hello
+  Scenario: test
+    Given test
+
+  Scenario Outline:Sample-Test
     Given Set endpoint and method "<endpoint>" and "<Method>"
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint | Method | Expected_status |
       | Gettt    | get    | 200             |
-
-  Scenario Outline: Get Company
+@bye
+  Scenario Outline:Get Company
     Given Set endpoint and method "<endpoint>" and "<Method>"
     Then Verify Status code <Expected_status>
     Examples:
       | endpoint | Method | Expected_status |
-      | Getc     | get    | 200             |
-
+      | Getc     | get    | 201             |
+@regression @hello
   Scenario Outline: Validate UserName
     Given Set endpoint and method "<endpoint>" and "<Method>"
     Then Verify Status code <Expected_status>
@@ -28,6 +32,7 @@ Feature: GemEcoSystem-APIs-JV
       | endpoint | Method | Expected_status |
       | Gett2    | get    | 200             |
 
+  @Hello
   Scenario Outline: Get data of suite s-run id not present
     Given Authenticate endpoint and method "<endpoint>" and "<Method>"
     Then Verify Status code <Expected_status>
@@ -49,6 +54,7 @@ Feature: GemEcoSystem-APIs-JV
       | endpoint | Method | Expected_status |
       | Gettoken | get    | 403             |
 
+  @regression
   Scenario Outline: Get Token With Empty Authentication
     Given Set Empty token endpoint and method "<endpoint>" and "<Method>"
     Then Verify Status code <Expected_status>
@@ -687,7 +693,7 @@ Feature: GemEcoSystem-APIs-JV
       | endpoint  | Method | Expected_status | SampleName            | stepName                      |
       | changeTag | Post   | 200             | privateTag_sampleJson | Test to change tag to private |
 
-   Scenario Outline:Get the Files when it is private with Authentication
+  Scenario Outline:Get the Files when it is private with Authentication
     Given Get file by setting Authentication: endpoint and method "<endpoint>" and "<Method>"
     Then Verify Status code <Expected_status>
     Examples:
