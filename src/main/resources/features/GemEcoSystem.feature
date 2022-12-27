@@ -10,6 +10,8 @@ Feature: GemEcoSystem-APIs-JV-BDD
     Examples:
       | endpoint | Method | Expected_status |
       | Gettt    | get    | 200             |
+      |   hello| hello       | 300     |
+
 @bye
   Scenario Outline:Get Company
     Given Set endpoint and method "<endpoint>" and "<Method>"
