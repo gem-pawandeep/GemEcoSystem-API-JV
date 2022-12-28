@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5ef8c7a-f27d-4b43-978e-869506981771" name="Changes" comment="with tags">
+    <list default="true" id="b5ef8c7a-f27d-4b43-978e-869506981771" name="Changes" comment="testing Sample-test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/features/GemEcoSystem.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/features/GemEcoSystem.feature" afterDir="false" />
     </list>
@@ -198,7 +198,21 @@
       <option name="project" value="LOCAL" />
       <updated>1672126529904</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="testing Sample-test">
+      <created>1672147105247</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1672147105247</updated>
+    </task>
+    <task id="LOCAL-00010" summary="testing Sample-test">
+      <created>1672147279837</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1672147279837</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,7 +234,8 @@
     <MESSAGE value="S-3 Bucket-APIs automation coverage" />
     <MESSAGE value="S-3 Bucket-APIs automation coverage." />
     <MESSAGE value="with tags" />
-    <option name="LAST_COMMIT_MESSAGE" value="with tags" />
+    <MESSAGE value="testing Sample-test" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing Sample-test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
