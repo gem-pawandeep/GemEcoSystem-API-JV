@@ -1,3 +1,5 @@
+Feature: test
+
 Scenario Outline:Get the file from recycle bin
 Given Post Suite-API endpoint and method and SampleName and step "<endpoint>" and "<Method>" and "<SampleName>" and "<stepName>"
 Then Verify Status code <Expected_status>

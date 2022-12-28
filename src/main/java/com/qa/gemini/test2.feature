@@ -1,3 +1,4 @@
+Feature: test2
 
 Scenario Outline:Get the Files when file not found
 Given Get file by setting Authentication, endpoint and method "<endpoint>" and "<Method>"
