@@ -64,7 +64,7 @@ public class utils {
             request.setURL(url);
             request.setMethod(method);
             if (!headers.isEmpty()) {
-                request.setHeaderMap(headers);
+                request.setHeaders(headers);
             }
             if (!step.isEmpty()) {
                 request.setStep(step);
@@ -147,7 +147,7 @@ public class utils {
             request.setURL(url);
             request.setMethod(method);
             if (!bt.isEmpty()) {
-                request.setHeaderMap(headers);
+                request.setHeaders(headers);
             }
             request.setRequestPayload(payload);
             response = ApiInvocation.handleRequest(request);
@@ -192,7 +192,7 @@ public class utils {
             request.setURL(url);
             request.setMethod(method);
             if (!bt.isEmpty()) {
-                request.setHeaderMap(headers);
+                request.setHeaders(headers);
             }
             request.setRequestPayload(payload);
             response = ApiInvocation.handleRequest(request);
@@ -241,7 +241,7 @@ public class utils {
             Request request = new Request();
             request.setURL(url);
             request.setMethod(method);
-            request.setHeaderMap(headers);
+            request.setHeaders(headers);
             request.setRequestPayload(payload);
             response = ApiInvocation.handleRequest(request);
             GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Executed Successfully", STATUS.PASS);
@@ -302,7 +302,7 @@ public class utils {
             Request request = new Request();
             request.setURL(url);
             request.setMethod("get");
-            request.setHeaderMap(headers);
+            request.setHeaders(headers);
             res = ApiInvocation.handleRequest(request);
         } catch (Exception e) {
             GemTestReporter.addTestStep(" Get Request Verification ", "Get Request Did not Executed Successfully", STATUS.FAIL);
@@ -384,7 +384,7 @@ public class utils {
             headers.put("bridgeToken", bt);
             request.setURL(urlss);
             request.setMethod("Post");
-            request.setHeaderMap(headers);
+            request.setHeaders(headers);
             request.setStep("Upload Text");
             request.setRequestPayload(TextToEnter);
             response = ApiInvocation.handleRequest(request);
@@ -412,7 +412,7 @@ public class utils {
             headers.put("bridgeToken", bt);
             request.setURL(urlss);
             request.setMethod("Post");
-            request.setHeaderMap(headers);
+            request.setHeaders(headers);
             request.setRequestPayload(TextToEnter);
             response = ApiInvocation.handleRequest(request);
             GemTestReporter.addTestStep("POST" + " Request Verification ", "POST" + " Request Executed Successfully", STATUS.PASS);
@@ -438,7 +438,7 @@ public class utils {
             headers.put("Authorization", "Bearer " + bt);
             request.setURL(urlss);
             request.setMethod("Post");
-            request.setHeaderMap(headers);
+            request.setHeaders(headers);
             request.setRequestPayload(TextToEnter);
             response = ApiInvocation.handleRequest(request);
             GemTestReporter.addTestStep("POST" + " Request Verification ", "POST" + " Request Executed Successfully", STATUS.PASS);
@@ -465,7 +465,7 @@ public class utils {
             request.setURL(urlss);
             request.setMethod(method);
             if (!headers.isEmpty()) {
-                request.setHeaderMap(headers);
+                request.setHeaders(headers);
             }
             if (!step.equals("")) {
                 request.setStep(step);
